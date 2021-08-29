@@ -1,0 +1,34 @@
+
+service: lambdaStub
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: ap-northeast-1
+# # Lambdaに適用するIAM Roleを指定
+#   role: "your IAM Role ARN"
+# 下記警告に対処
+# Deprecation warning: Resolution of lambda version hashes was improved with better algorithm, which will be used in next major release.
+  lambdaHashingVersion: 20201221
+
+package:
+  exclude:
+    - .git/**
+    - sampleJsons/**
+    - README.md
+
+functions:
+  lambdaHandler:
+    handler: lambda.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
+    layers:
+      - { Ref: LayerNameLambdaLayer }
+
+layers:
+  layerName:
+    path: lambdaLayer
