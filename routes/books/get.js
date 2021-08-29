@@ -25,17 +25,17 @@ module.exports = function (req, res) {
   }
 
   const params = {
-    TableName: "Bookmark",
+    TableName: "Book",
     Item: [{
-      bookmarkContentId: "111111",
-      bookmarkFolderId: "222222",
-      bookmarkId: "333333",
+      bookContentId: "111111",
+      bookFolderId: "222222",
+      bookId: "333333",
       bookCode: query.bookCode,
       updateDate: nowFormatted,
     }, {
-      bookmarkContentId: "111111",
-      bookmarkFolderId: "222222",
-      bookmarkId: "333333",
+      bookContentId: "111111",
+      bookFolderId: "222222",
+      bookId: "333333",
       bookCode: query.bookCode,
       updateDate: nowFormatted,
     }]
